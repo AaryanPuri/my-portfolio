@@ -544,9 +544,24 @@
     }
 
     .achievement-modal {
+        display: flex;
+        flex-direction: column;
         max-width: 100%;
         max-height: 92vh;
+        overflow: hidden;
         border-radius: 24px 24px 0 0;
+    }
+
+    .achievement-modal-scroll {
+        overflow-y: auto;
+        min-height: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .achievement-modal-close {
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
     .achievement-modal-images .achievement-modal-image:first-child {

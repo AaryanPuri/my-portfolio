@@ -319,17 +319,19 @@ function AchievementModal({ item, onClose }) {
                 <button className="achievement-modal-close" onClick={onClose} aria-label="Close">
                     <CloseIcon />
                 </button>
-                <div className="achievement-modal-images">
-                    {item.photos.map((src, i) => (
-                        <div className="achievement-modal-image" key={src}>
-                            <img src={src} alt={`${item.title} ${i + 1}`} />
-                        </div>
-                    ))}
-                </div>
-                <div className="achievement-modal-info">
-                    <h4>{item.title}</h4>
-                    {item.org && <p className="achievement-modal-org">{item.org}</p>}
-                    <p className="achievement-modal-description">{item.description}</p>
+                <div className="achievement-modal-scroll">
+                    <div className="achievement-modal-images">
+                        {item.photos.map((src, i) => (
+                            <div className="achievement-modal-image" key={src}>
+                                <img src={src} alt={`${item.title} ${i + 1}`} />
+                            </div>
+                        ))}
+                    </div>
+                    <div className="achievement-modal-info">
+                        <h4>{item.title}</h4>
+                        {item.org && <p className="achievement-modal-org">{item.org}</p>}
+                        <p className="achievement-modal-description">{item.description}</p>
+                    </div>
                 </div>
             </motion.div>
         </motion.div>
