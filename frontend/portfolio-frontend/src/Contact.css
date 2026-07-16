@@ -113,7 +113,7 @@
 .contact-modal-overlay {
     position: fixed;
     inset: 0;
-    z-index: 200;
+    z-index: 25000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -252,7 +252,7 @@
     left: 50%;
     bottom: 36px;
     transform: translateX(-50%);
-    z-index: 300;
+    z-index: 25001;
     background: #000000;
     color: #faf7f3;
     font-family: 'Inter', sans-serif;

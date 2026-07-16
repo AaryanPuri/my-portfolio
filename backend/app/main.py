@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from . import crud, schemas
 from .config import settings
 from .database import Base, engine, get_db
+from .notify import send_contact_notification
 from .rate_limit import is_ask_rate_limited, is_rate_limited
 from . import rag
 
@@ -32,7 +33,9 @@ def submit_contact_message(payload: schemas.ContactMessageCreate, request: Reque
     if is_rate_limited(client_ip):
         raise HTTPException(status_code=429, detail="Please wait before sending another message.")
 
-    return crud.create_message(db, payload)
+    saved = crud.create_message(db, payload)
+    send_contact_notification(payload.name, payload.email, payload.message)
+    return saved
 
 
 @app.get("/api/messages", response_model=list[schemas.ContactMessageOut])

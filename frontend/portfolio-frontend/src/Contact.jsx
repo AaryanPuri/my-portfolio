@@ -84,8 +84,8 @@ function ContactModal({ onClose, onSuccess }) {
         const trimmedMessage = message.trim()
         const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)
 
-        if (!trimmedName || !emailValid || trimmedMessage.length < 10) {
-            setErrorMsg('Please fill in your name, a valid email, and a message (10+ characters).')
+        if (!trimmedName || !emailValid || !trimmedMessage) {
+            setErrorMsg('Please fill in your name, a valid email, and a message.')
             setStatus('error')
             return
         }

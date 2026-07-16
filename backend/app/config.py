@@ -6,6 +6,8 @@ class Settings(BaseSettings):
     allowed_origins: str = "http://localhost:5173"
     admin_api_key: str
     openai_api_key: str = ""
+    resend_api_key: str = ""
+    contact_notify_email: str = ""
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
