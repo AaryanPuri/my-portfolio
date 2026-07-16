@@ -18,7 +18,6 @@
     }
 }
 
-/* Layer 1 -- background gradient */
 .footer-gradient {
     position: absolute;
     inset: 0;
@@ -27,9 +26,8 @@
     pointer-events: none;
 }
 
-/* Layer 2 -- subtle grain, scoped to the footer and much softer than the
-   global body grain (which this stacking context sits above, so it no
-   longer shows through here at all) */
+/* scoped to the footer and much softer than the global body grain, which
+   this stacking context sits above, so it no longer shows through here */
 .footer-grain {
     position: absolute;
     inset: 0;
@@ -40,7 +38,6 @@
     background-size: 200px 200px;
 }
 
-/* Layer 3 -- oversized wordmark, cropped by the footer's bottom edge */
 .footer-giant-crop {
     position: absolute;
     inset: 0;
@@ -71,7 +68,6 @@
     }
 }
 
-/* Layer 4 -- footer content */
 .footer-content {
     position: relative;
     z-index: 4;

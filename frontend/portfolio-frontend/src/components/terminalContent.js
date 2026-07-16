@@ -121,7 +121,6 @@ export function formatPrompt(cwd) {
     return `${PROMPT_HOST}:${path}$`
 }
 
-// virtual filesystem -- explored via ls / cd / cat
 export const FILESYSTEM = {
     'about.txt': { type: 'file', content: ABOUT_TEXT },
     experience: {

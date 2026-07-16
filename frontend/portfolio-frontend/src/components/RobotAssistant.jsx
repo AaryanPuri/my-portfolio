@@ -8,6 +8,18 @@ const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 const MESSAGES = ["Hi, I'm NOVA."]
 
+// iOS Safari auto-zooms in when a text input is focused and doesn't always
+// zoom back out on blur -- toggling the viewport's max-scale forces it to
+// snap back, then we restore the original tag so pinch-zoom still works
+// everywhere else on the site.
+function resetMobileZoom() {
+    const viewport = document.querySelector('meta[name="viewport"]')
+    if (!viewport) return
+    const original = viewport.getAttribute('content')
+    viewport.setAttribute('content', `${original}, maximum-scale=1.0`)
+    setTimeout(() => viewport.setAttribute('content', original), 60)
+}
+
 function DownloadIcon() {
     return (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -167,6 +179,7 @@ function RobotAssistant() {
                 document.activeElement.blur()
             }
             buttonRef.current?.blur()
+            if (view === 'chat') resetMobileZoom()
             const t = setTimeout(() => setView('menu'), 300)
             return () => clearTimeout(t)
         }
@@ -179,7 +192,6 @@ function RobotAssistant() {
         }
     }, [chatMessages, chatLoading])
 
-    // idle blink loop
     useEffect(() => {
         let timeoutId
         const scheduleBlink = () => {
@@ -211,7 +223,6 @@ function RobotAssistant() {
         return () => clearTimeout(timeoutId)
     }, [headRotateRaw])
 
-    // occasional contextual speech bubble
     useEffect(() => {
         let timeoutId
         const scheduleMessage = () => {
@@ -227,7 +238,6 @@ function RobotAssistant() {
         return () => clearTimeout(timeoutId)
     }, [])
 
-    // close panel on outside click / Escape
     useEffect(() => {
         if (!panelOpen) return undefined
         function handlePointerDown(e) {
@@ -413,7 +423,7 @@ function RobotAssistant() {
                         transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <div className="robot-panel-header">
-                            <button type="button" className="robot-panel-back" onClick={() => setView('menu')} aria-label="Back to menu">
+                            <button type="button" className="robot-panel-back" onClick={() => { resetMobileZoom(); setView('menu') }} aria-label="Back to menu">
                                 <BackIcon />
                             </button>
                             <span className="robot-panel-title">NOVA</span>
@@ -507,11 +517,9 @@ function RobotAssistant() {
                         </radialGradient>
                     </defs>
 
-                    {/* shoulders */}
                     <rect x="10" y="96" width="16" height="11" rx="5.5" fill="url(#robotBody)" />
                     <rect x="74" y="96" width="16" height="11" rx="5.5" fill="url(#robotBody)" />
 
-                    {/* torso */}
                     <rect x="26" y="88" width="48" height="38" rx="15" fill="url(#robotBody)" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
                     <motion.circle
                         cx="50"
@@ -522,14 +530,11 @@ function RobotAssistant() {
                         transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
                     />
 
-                    {/* neck */}
                     <rect x="42" y="78" width="16" height="13" rx="4" fill="#1c1c1e" />
 
                     <motion.g style={{ rotate: headRotate, y: headY, originX: '50px', originY: '46px' }}>
-                        {/* head */}
                         <rect x="18" y="6" width="64" height="62" rx="24" fill="url(#robotHead)" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
 
-                        {/* side sensor light */}
                         <motion.circle
                             cx="80"
                             cy="24"
@@ -539,7 +544,6 @@ function RobotAssistant() {
                             transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
                         />
 
-                        {/* visor */}
                         <rect x="27" y="30" width="46" height="17" rx="8.5" fill="#07080a" />
                         <clipPath id="visorClip">
                             <rect x="27" y="30" width="46" height="17" rx="8.5" />

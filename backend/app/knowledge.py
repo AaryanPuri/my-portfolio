@@ -18,6 +18,15 @@ KNOWLEDGE_BASE = [
         ),
     },
     {
+        "id": "personal-background",
+        "title": "Personal Background",
+        "text": (
+            "Aaryan Puri was born in Allahabad (now known as Prayagraj), Uttar Pradesh, India. "
+            "He currently lives in Pune, Maharashtra, India, which is also his permanent address. "
+            "His current work location is Pune, and he is open to relocation for the right opportunity."
+        ),
+    },
+    {
         "id": "education",
         "title": "Education",
         "text": (
