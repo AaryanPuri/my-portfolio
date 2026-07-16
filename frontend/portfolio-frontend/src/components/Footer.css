@@ -68,6 +68,12 @@
     }
 }
 
+@media (max-width: 640px) {
+    .footer-giant-type {
+        font-size: clamp(64px, 21vw, 104px);
+    }
+}
+
 .footer-content {
     position: relative;
     z-index: 4;

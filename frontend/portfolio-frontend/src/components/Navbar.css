@@ -55,4 +55,8 @@
         padding: 8px 14px;
         font-size: 12.5px;
     }
+
+    body.achievement-modal-open .navbar {
+        display: none;
+    }
 }

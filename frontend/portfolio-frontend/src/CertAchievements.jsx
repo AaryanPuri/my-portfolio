@@ -290,9 +290,11 @@ function AchievementModal({ item, onClose }) {
         document.addEventListener('keydown', handleKeyDown)
         const { overflow } = document.body.style
         document.body.style.overflow = 'hidden'
+        document.body.classList.add('achievement-modal-open')
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
             document.body.style.overflow = overflow
+            document.body.classList.remove('achievement-modal-open')
         }
     }, [onClose])
 
