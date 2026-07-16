@@ -250,17 +250,36 @@
 .contact-toast {
     position: fixed;
     left: 50%;
-    bottom: 36px;
+    top: 28px;
     transform: translateX(-50%);
     z-index: 25001;
-    background: #000000;
-    color: #faf7f3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #16281f;
+    color: #baf2c9;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 14px;
-    padding: 14px 24px;
+    padding: 12px 22px;
     border-radius: 100px;
+    border: 1px solid rgba(93, 224, 138, 0.35);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-toast svg {
+    flex-shrink: 0;
+    color: #5de08a;
+}
+
+@media (max-width: 640px) {
+    .contact-toast {
+        top: 18px;
+        font-size: 13px;
+        padding: 10px 18px;
+        max-width: calc(100vw - 48px);
+        text-align: center;
+    }
 }
 
 @media (max-width: 640px) {
