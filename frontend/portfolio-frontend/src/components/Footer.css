@@ -1,0 +1,182 @@
+.site-footer {
+    position: relative;
+    isolation: isolate;
+    z-index: 10000;
+    background: #0d0d0d;
+    color: #faf7f3;
+    overflow: hidden;
+    min-height: 66vh;
+    display: flex;
+    align-items: flex-start;
+    padding: 28px 24px 0;
+}
+
+@media (max-width: 900px) {
+    .site-footer {
+        min-height: 62vh;
+        padding: 32px 20px 0;
+    }
+}
+
+/* Layer 1 -- background gradient */
+.footer-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(120% 85% at 50% 0%, #1c1c1c 0%, #101010 55%, #080808 100%);
+    pointer-events: none;
+}
+
+/* Layer 2 -- subtle grain, scoped to the footer and much softer than the
+   global body grain (which this stacking context sits above, so it no
+   longer shows through here at all) */
+.footer-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+}
+
+/* Layer 3 -- oversized wordmark, cropped by the footer's bottom edge */
+.footer-giant-crop {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.footer-giant-type {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: clamp(220px, 24vw, 450px);
+    line-height: 0.82;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    color: rgba(250, 247, 243, 0.14);
+    mix-blend-mode: overlay;
+    margin-bottom: -0.29em;
+    user-select: none;
+    will-change: transform;
+}
+
+@media (max-width: 900px) {
+    .footer-giant-type {
+        font-size: clamp(160px, 44vw, 320px);
+    }
+}
+
+/* Layer 4 -- footer content */
+.footer-content {
+    position: relative;
+    z-index: 4;
+    max-width: 1180px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer-tagline {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 56px);
+    letter-spacing: -0.02em;
+    line-height: 1.1em;
+    color: #faf7f3;
+    margin-bottom: 24px;
+    max-width: 760px;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+    margin-bottom: 24px;
+}
+
+.footer-column h4 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: rgba(250, 247, 243, 0.5);
+    margin-bottom: 14px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-link {
+    position: relative;
+    display: inline-flex;
+    width: fit-content;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #faf7f3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* hover-driven opacity/transform live on this plain child span, not on
+   .footer-link itself -- .footer-link is a motion.a whose entrance
+   animation leaves an inline opacity/transform behind, which would
+   permanently win over any :hover rule placed on the same element */
+.footer-link-label {
+    position: relative;
+    display: inline-block;
+    opacity: 0.82;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.footer-link-label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-link:hover .footer-link-label {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+.footer-link:hover .footer-link-label::after {
+    transform: scaleX(1);
+}
+
+.footer-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: rgba(250, 247, 243, 0.4);
+    padding-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .footer-tagline {
+        margin-bottom: 20px;
+    }
+
+    .footer-columns {
+        gap: 40px;
+        margin-bottom: 20px;
+    }
+
+    .footer-meta {
+        padding-bottom: 8px;
+    }
+}

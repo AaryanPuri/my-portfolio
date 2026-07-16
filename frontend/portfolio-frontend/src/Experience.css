@@ -1,0 +1,317 @@
+.experience-section {
+    background: #faf7f3;
+    padding: 100px 24px 180px;
+}
+
+.experience-container {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.experience-heading-title {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 4.5vw, 56px);
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin-bottom: 96px;
+}
+
+.experience-timeline {
+    position: relative;
+    padding-left: 72px;
+}
+
+.experience-line-track,
+.experience-line-progress {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 23px;
+    width: 2px;
+}
+
+.experience-line-track {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.experience-line-progress {
+    background: #000000;
+    transform-origin: top;
+}
+
+.experience-item {
+    position: relative;
+    display: flex;
+    margin-bottom: 64px;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-marker {
+    position: absolute;
+    left: -72px;
+    top: 40px;
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.experience-node {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #000000;
+    box-shadow: 0 0 0 8px #faf7f3, 0 0 0 9px rgba(0, 0, 0, 0.08);
+}
+
+.experience-card {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    padding: 36px 40px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.16);
+}
+
+.experience-logos {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.experience-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    padding: 8px 14px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    background: #faf7f3;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.experience-logo:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.18);
+}
+
+.experience-logo img {
+    height: 100%;
+    width: auto;
+    max-width: 130px;
+    object-fit: contain;
+}
+
+.experience-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.experience-heading h3 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.experience-client {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #888888;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px 10px;
+    border-radius: 100px;
+}
+
+.experience-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.experience-role-row {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.experience-role-row.has-sub-dot {
+    padding-left: 16px;
+}
+
+.experience-sub-dot {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #faf7f3;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.experience-role {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #222222;
+}
+
+.experience-role-duration {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #999999;
+}
+
+.experience-location {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #999999;
+    margin-bottom: 28px;
+}
+
+.experience-highlights-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    margin-bottom: 14px;
+}
+
+.experience-highlights ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.experience-highlights li {
+    position: relative;
+    padding-left: 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6em;
+    color: #555555;
+}
+
+.experience-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #bbbbbb;
+    font-size: 14px;
+}
+
+@media (max-width: 640px) {
+    .experience-section {
+        padding-top: 64px;
+    }
+
+    .experience-timeline {
+        padding-left: 40px;
+    }
+
+    .experience-logos {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .experience-logo {
+        height: 52px;
+        flex-shrink: 0;
+    }
+
+    .experience-logo img {
+        max-width: 100px;
+    }
+
+    /* a paired employer + client logo is one grouped unit — size it to
+       always fit on a single row instead of wrapping into a taller card */
+    .experience-logos.has-multiple {
+        gap: 10px;
+    }
+
+    .experience-logos.has-multiple .experience-logo {
+        height: 40px;
+        padding: 6px 10px;
+    }
+
+    .experience-logos.has-multiple .experience-logo img {
+        max-width: 76px;
+    }
+
+    .experience-line-track,
+    .experience-line-progress {
+        left: 9px;
+    }
+
+    .experience-marker {
+        left: -40px;
+        width: 24px;
+        top: 32px;
+    }
+
+    .experience-node {
+        width: 12px;
+        height: 12px;
+        box-shadow: 0 0 0 6px #faf7f3, 0 0 0 7px rgba(0, 0, 0, 0.08);
+    }
+
+    .experience-card {
+        padding: 24px 18px;
+    }
+
+    .experience-heading h3 {
+        font-size: clamp(20px, 5.5vw, 26px);
+    }
+}
+
+@media (max-width: 375px) {
+    .experience-logos.has-multiple .experience-logo {
+        height: 36px;
+        padding: 4px 8px;
+    }
+
+    .experience-logos.has-multiple .experience-logo img {
+        max-width: 64px;
+    }
+
+    .experience-card {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 280px) {
+    .experience-logos.has-multiple {
+        flex-wrap: wrap;
+    }
+}

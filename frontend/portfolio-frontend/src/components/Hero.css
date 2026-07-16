@@ -1,52 +1,51 @@
-.hero {
-    height: 100vh;
-    background: #0d0d0d;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.hero-title {
+.hero-copy {
     display: flex;
     align-items: center;
     gap: 16px;
-    font-size: 100px;
+    font-size: clamp(40px, 14vw, 200px);
     position: relative;
     text-align: center;
+    z-index: 1;
 }
 
-.hero-title .star:first-child {
-    position: absolute;
-    top: -20px;
-    left: -40px;
-  }
-
-  .hero-title .star:last-child {
-    position: absolute;
-    bottom: -20px;
-    right: -40px;
-  }
+.hero-copy h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 1em;
+    letter-spacing: -0.02em;
+    line-height: 0.9em;
+    color: #000000;
+}
 
 .star {
-    font-size: 48px;
-    color: #ffffff;
-}
-
-.hero-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.hero-bottom {
+    width: clamp(70px, 15vw, 150px);
+    cursor: grab;
     position: absolute;
-    bottom: 40px;
-    width: 100%;
-    padding: 0 48px;
-    display: flex;
-    justify-content: space-between;
-    color: #888888;
+    top: -60px;
+    left: 20px;
+    z-index: 10;
+}
+
+.lightning {
+    width: clamp(70px, 15vw, 150px);
+    cursor: grab;
+    position: absolute;
+    bottom: -50px;
+    right: -140px;
+    z-index: 10;
+}
+
+@media (max-width: 1024px) {
+    .star {
+        /* vertical offset always exceeds the icon's own (responsive) size
+           plus a gap, so it clears the text above it at any width instead
+           of a fixed px guess that only worked for one viewport size */
+        top: calc(-1 * clamp(70px, 15vw, 150px) - 12px);
+        left: 0;
+    }
+
+    .lightning {
+        bottom: calc(-1 * clamp(70px, 15vw, 150px) - 12px);
+        right: 0;
+    }
 }

@@ -1,26 +1,58 @@
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%;
-    padding: 24px 48px;
+    left: 0;
+    right: 0;
+    padding: 20px 32px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    z-index: 100;
+    z-index: 15000;
+    pointer-events: none;
 }
 
-.navbar-name {
-    color: #ffffff;
+.navbar > * {
+    pointer-events: auto;
+}
+
+.navbar-terminal-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #111113;
+    color: #faf7f3;
+    border: none;
+    border-radius: 999px;
+    padding: 9px 16px 9px 18px;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), gap 0.3s ease, background 0.3s ease;
 }
 
-.navbar-email {
-    color: #888888;
-    text-decoration: none;
-    font-size: 14px;
+.navbar-terminal-btn svg {
+    transition: transform 0.3s ease;
 }
 
-.navbar-email:hover {
-    color: #ffffff;
+.navbar-terminal-btn:hover {
+    gap: 9px;
+    transform: translateY(-1px);
+    background: #000000;
+}
+
+.navbar-terminal-btn:hover svg {
+    transform: translate(1px, -1px);
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        padding: 14px 16px;
+    }
+
+    .navbar-terminal-btn {
+        padding: 8px 14px;
+        font-size: 12.5px;
+    }
 }
