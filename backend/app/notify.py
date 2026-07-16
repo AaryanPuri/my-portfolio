@@ -19,7 +19,7 @@ def send_contact_notification(name: str, email: str, message: str) -> None:
             RESEND_ENDPOINT,
             headers={"Authorization": f"Bearer {settings.resend_api_key}"},
             json={
-                "from": "Portfolio Contact <onboarding@resend.dev>",
+                "from": "Portfolio Contact <contact@aaryanpuri.me>",
                 "to": [settings.contact_notify_email],
                 "reply_to": email,
                 "subject": f"New portfolio message from {name}",
